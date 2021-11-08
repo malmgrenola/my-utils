@@ -1,0 +1,5 @@
+#!/bin/bash
+# place yoursel in the root of a code project and run "cwd"
+# Copy current working directory
+# The current path will be copied into the clipboard
+pwd | pbcopy

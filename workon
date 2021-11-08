@@ -1,0 +1,6 @@
+#!/bin/bash
+# place yoursel in the root of a code project and run "workon"
+# atom opens with project and a Finder window opens
+
+code .
+open .
