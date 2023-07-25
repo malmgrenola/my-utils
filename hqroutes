@@ -1,0 +1,35 @@
+#!/bin/bash
+
+action=${1:-add}
+
+if [ $action = "add" ]; then
+    echo "Adding routes" 1>&2
+    sudo route -n add -net 10.0.30.0/24 10.0.1.1
+    sudo route -n add -net 10.0.31.0/24 10.0.1.1
+    echo "Adding routes done!" 1>&2
+    return
+fi
+
+if [ $action = "delete" ]; then
+    echo "Deleting routes" 1>&2
+    sudo route -n delete -net 10.0.30.0/24 10.0.1.1
+    sudo route -n delete -net 10.0.31.0/24 10.0.1.1
+    echo "Deleting routes done!" 1>&2
+    return
+fi
+
+echo "Unkown action: $action"
+echo "did you mean add or delete?"
+return
+# if [ -z "$ip" ]; then
+#     echo "ip missing" 1>&2
+#     exit 2
+# fi
+
+# remove_latest
+# create_package
+# push
+# ssh bst@$ip <<EOF
+#     $(typeset -f post_push)
+#     post_push
+# EOF
